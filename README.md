@@ -21,10 +21,14 @@ This system can be installed from [UltraLisp](https://ultralisp.org/) like this:
 ```common-lisp
 (setf geonames:*username* "MY-API-USERNAME")
 
-(geonames:find-nearby-postal-codes :latitude 47.3 :longitude 9 :style :full)
+(defvar *lat* 47.3)
+(defvar *lng* 9)
+(geonames:find-nearby-postal-codes :latitude *lat* :longitude *lng* :style :full)
 (geonames:postal-code-country-info)
 (geonames:find-nearby-postal-codes :postal-code 9011)
-(geonames:astergdem 47.3 9)
-(geonames:postal-code-country-info)
+(geonames:astergdem *lat* *lng*)
+(geonames:country-code *lat* *lng*)
+(geonames:timezone *lat* *lng*)
+(geonames:country-info :country "DE" :language "FR")
 ;; etc
 ```
